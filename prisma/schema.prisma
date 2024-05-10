@@ -7,38 +7,50 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-
 model User {
-  id        Int       @id @default(autoincrement())
-  email     String    @unique
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
   password  String
   username  String?
-  createdAt DateTime  @default(now())
-  updatedAt DateTime  @updatedAt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
-model Category {
-  id        Int       @id @default(autoincrement())
-  title     String
+model Task {
+  id        Int      @id @default(autoincrement())
+  task      String   @unique
+  taskSlug  String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
   links     Link[]
-  createdAt DateTime  @default(now())
-  updatedAt DateTime  @updatedAt
 }
 
 model Link {
-  id        Int       @id @default(autoincrement())
-  title     String
-  url       String
-  imageUrl  String?
-  describe  String?
-  category  Category? @relation(fields: [categoryId], references: [id])
-  categoryId Int?
-  createdAt DateTime  @default(now())
-  updatedAt DateTime  @updatedAt
+  id          Int          @id @default(autoincrement())
+  title       String
+  url         String       @unique
+  innerUrl    String       @unique
+  imageUrl    String?
+  describe    String?
+  active      Boolean      @default(true)
+  taskId      Int?
+  task        Task?    @relation(fields: [taskId], references: [id])
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+  linkDetails LinkDetail[]
+}
+
+model LinkDetail {
+  id        Int      @id @default(autoincrement())
+  linkId    Int
+  content   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  link      Link     @relation(fields: [linkId], references: [id])
 }
 
 model Visit {
-  id        Int       @id @default(autoincrement())
+  id        Int      @id @default(autoincrement())
   linkId    Int
-  visitedAt DateTime  @default(now())
+  visitedAt DateTime @default(now())
 }
