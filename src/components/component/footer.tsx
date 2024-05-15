@@ -18,7 +18,7 @@ export default function Footer() {
                     <li><a className="text-zinc-900 hover:text-blue-500" href="#">About</a></li>
                     <li><a className="text-zinc-900 hover:text-blue-500" href="#">Contact</a></li>
                 </ul>
-                <div className="text-sm text-zinc-500 text-center">© 2024 Tailsc. All Rights Reserved.</div>
+                <div className="text-sm text-zinc-500 text-center">© 2024 Tailsc. All Rights Reserved. <a href="/privacy-policy">privacy-policy</a></div>
             </div>
         </footer>
     )
