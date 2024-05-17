@@ -103,7 +103,7 @@ async function insertData(tasks) {
                 // 如果 title 已存在，跳过
                 continue;
             }
-            const innerUrl = strToURL(item.url);
+            const innerUrl = strToURL(item.name);
             // Insert into Link table
             const insertLinkText = 'INSERT INTO "Link"("title", "innerUrl", "url", "taskId", "updatedAt") VALUES($1, $2, $3, $4, $5)';
             await client.query(insertLinkText, [item.name, innerUrl, item.url, taskId, new Date()]);

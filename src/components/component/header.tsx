@@ -1,42 +1,72 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { SheetTrigger, SheetContent, Sheet } from "@/components/ui/sheet"
-import { Input } from "@/components/ui/input"
-import { DropdownMenuTrigger, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuItem, DropdownMenuContent, DropdownMenu } from "@/components/ui/dropdown-menu"
-import { CardTitle, CardHeader, CardContent, Card, CardDescription } from "@/components/ui/card"
-import { TableHead, TableRow, TableHeader, TableCell, TableBody, Table } from "@/components/ui/table"
-import { Badge } from "@/components/ui/badge"
 import { AvatarImage, AvatarFallback, Avatar } from "@/components/ui/avatar"
+import { auth, signIn, signOut } from "@/auth"
+import {
+    Dialog,
+    DialogContent,
+    DialogFooter,
+    DialogHeader,
+    DialogTitle,
+    DialogTrigger,
+    DialogClose,
+} from "@/components/ui/dialog"
 
-export default function Header() {
+
+export default async function Header() {
+    const session = await auth();
+    const avatar = session?.user?.image;
     return (
         <header className=" top-0 flex h-16 items-center gap-4 border-b bg-background px-4 md:px-6">
             <Link className="flex items-center gap-2 text-lg font-semibold md:text-base" href="#">
-                <Package2Icon className="h-6 w-6" />
-                <span className="sr-only">AI nav</span>
+            <img alt="Aiwebsiteslist Logo" loading="lazy" width="30" height="30" decoding="async" data-nimg="1" src="/logo.svg" />
+                <span className="sr-only">AIwebsitesList</span>
             </Link>
             <Link className="text-foreground transition-colors hover:text-foreground" href="#">
-                AINAV
+            AIwebsitesList
             </Link>
 
-            <div className="flex w-full items-center gap-4 md:ml-auto md:gap-2 lg:gap-4">
-                <DropdownMenu>
-                    <DropdownMenuTrigger asChild>
-                        <Button className="rounded-full" size="icon" variant="secondary">
+            <div  className="flex items-center gap-2">
+
+                <Dialog>
+                    <DialogTrigger>
+                        {avatar ?
+                            <Avatar>
+                                <AvatarImage src={avatar} />
+                                <AvatarFallback>CN</AvatarFallback>
+                            </Avatar>
+                            :
                             <CircleUserIcon className="h-5 w-5" />
-                            <span className="sr-only">Toggle user menu</span>
-                        </Button>
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent align="end">
-                        <DropdownMenuLabel>My Account</DropdownMenuLabel>
-                        <DropdownMenuSeparator />
-                        <DropdownMenuItem>Settings</DropdownMenuItem>
-                        <DropdownMenuItem>Support</DropdownMenuItem>
-                        <DropdownMenuSeparator />
-                        <DropdownMenuItem>Logout</DropdownMenuItem>
-                    </DropdownMenuContent>
-                </DropdownMenu>
+                        }
+                        <span className="sr-only">Toggle user Login</span>
+                    </DialogTrigger>
+                    <DialogContent>
+                        <DialogHeader>
+                            <DialogTitle>Are you absolutely sure?</DialogTitle>
+                        </DialogHeader>
+                            <DialogFooter>
+                            <DialogClose  className="w-full" asChild>
+                                {avatar ?
+                                    <form action={async () => {
+                                        "use server"
+                                        await signOut()
+                                    }}>
+                                        <Button variant="outline" className="w-full">Sign out</Button>
+                                    </form>
+                                    :
+                                    <form action={async () => {
+                                        "use server"
+                                        await signIn()
+                                    }}>
+                                        <Button variant="outline" className="w-full">Sign In</Button>
+                                    </form>
+                                }
+                                </DialogClose>
+                            </DialogFooter>
+                    </DialogContent>
+                </Dialog>
             </div>
+            
         </header>
     )
 }

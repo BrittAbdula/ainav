@@ -1,11 +1,10 @@
 'use client'
 import React from 'react';
-import Link from 'next/link';
 import { useState } from 'react';
 import { CardTitle, CardHeader, CardContent, Card, CardDescription } from "@/components/ui/card";
 import { LinkIcon, FavoriteIcon } from "@/components/ui/svg";
 
-export type LinkCardProps =  {
+export type LinkCardProps = {
     task: {
         task: string;
         taskSlug: string | null;
@@ -15,13 +14,30 @@ export type LinkCardProps =  {
     url: string;
     imageUrl: string | null;
     describe: string | null;
+    favorites: { linkId: number; active: boolean; }[] | null;
 }
 
 export default function LinkCard({ link }: { link: LinkCardProps }) {
-    const [color, setColor] = useState("");
+    const [favStatus, setFavStatus] = useState((link.favorites?.length || 0) > 0 ? true : false);
 
-    const handleFav = () => {
-        setColor(color === "red" ? "none" : "red");
+    const handleFav = async () => {
+        fetch('/api/handleFav', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ favId: link.id, favStatus: !favStatus })
+        }).then(response => response.json())
+            .then(favorite => {
+                if (favorite) {
+                    setFavStatus(favorite.active);
+                }
+                console.log("Favorite updated successfully: ", favorite);
+            })
+            .catch(error => {
+                console.log("An error occurred while handling favorite");
+            });
+
     }
 
     return (
@@ -40,7 +56,7 @@ export default function LinkCard({ link }: { link: LinkCardProps }) {
                         </div>
                     </a>
                     <div className="p-2 border-2 border-transparent hover:border-gray-300" onClick={handleFav} >
-                        <FavoriteIcon className="h-4 w-4 text-muted-foreground hover:text-red-500" color={color} />
+                        <FavoriteIcon className="h-4 w-4 text-muted-foreground hover:text-red-500" color={favStatus ? "red" : "none"} />
                     </div>
                 </div>
             </CardContent>

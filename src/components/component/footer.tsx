@@ -7,7 +7,7 @@ export default function Footer() {
                 <div>
                     <div className="select-none flex items-center">
                         <div className="mr-2"><img alt="Tailsc Logo" loading="lazy" width="30" height="30" decoding="async" data-nimg="1" src="/logo.svg" /></div>
-                        <div className="text-xl __className_3ac6c1">Tailsc</div>
+                        <div className="text-xl __className_3ac6c1"></div>
                     </div>
                 </div>
                 <p className="text-base text-center text-zinc-500 mx-auto max-w-2xl">Get started over 100+ UI components, sections and pages built with Tailwind CSS.</p>
@@ -18,7 +18,7 @@ export default function Footer() {
                     <li><a className="text-zinc-900 hover:text-blue-500" href="#">About</a></li>
                     <li><a className="text-zinc-900 hover:text-blue-500" href="#">Contact</a></li>
                 </ul>
-                <div className="text-sm text-zinc-500 text-center">© 2024 Tailsc. All Rights Reserved. <a href="/privacy-policy">privacy-policy</a></div>
+                <div className="text-sm text-zinc-500 text-center">© 2024 aiwebsiteslist.com. All Rights Reserved. <a href="/privacy-policy">privacy-policy</a></div>
             </div>
         </footer>
     )

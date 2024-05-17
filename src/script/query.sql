@@ -10,3 +10,6 @@ INSERT INTO "Link" ("title", "url", "imageUrl", "categoryId","updatedAt") VALUES
 ('ChatGPT', 'https://openai.com/', 'openai.png', 2, now()),
 ('Claude', 'https://claude.ai/', 'https://example.com/image/codex.jpg', 2, now());
 
+
+--- 获取 icon
+https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://emojitell.com&size=128
