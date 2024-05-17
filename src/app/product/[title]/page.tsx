@@ -7,7 +7,7 @@ export default async function ProductPage({ linkId }: { linkId: number }) {
         <div>
             <h1>{link?.title}</h1>
             <p>{link?.describe}</p>
-            <p>{link?.linkDetails.content}</p>
+            <p>{link?.linkDetail?.content}</p>
         </div>
     )
 }
