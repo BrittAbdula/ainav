@@ -50,7 +50,7 @@ export const fetchLinks = async (userId?: string, filter?: boolean, offset?: num
     }
 }
 
-// fetch Link detail
+// fetch Link detaill
 
 // handle favorite
 export const handleFavorite = async (userId: string, favId: number, favStatus: boolean) => {
