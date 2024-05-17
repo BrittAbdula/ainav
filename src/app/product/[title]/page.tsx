@@ -1,7 +1,7 @@
 import { fetchLinkDetail } from "@/lib/data";
 
-export default async function ProductPage({ linkId }: { linkId: number }) {
-    const link = await fetchLinkDetail(linkId);
+export default async function ProductPage({ params }: {params: { linkId: number }}) {
+    const link = await fetchLinkDetail(Number(params.linkId));
 
     return (
         <div>

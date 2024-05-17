@@ -84,6 +84,7 @@ export const fetchLinkDetail = async (linkId: number) => {
         });
         return link;
     } catch (error) {
+        console.error("Error fetching link detail:", error);
         throw new Error("Failed to fetch link detail");
     }
 }
