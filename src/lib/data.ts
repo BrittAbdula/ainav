@@ -50,7 +50,44 @@ export const fetchLinks = async (userId?: string, filter?: boolean, offset?: num
     }
 }
 
-// fetch Link detaill
+// fetch LinkDetail by LinkId
+export const fetchLinkDetail = async (linkId: number) => {
+    try {
+        const link = await prisma.link.findUnique({
+            where: {
+                id: linkId,
+            },
+            select: {
+                url: true,
+                title: true,
+                describe: true,
+                imageUrl: true,
+                task: {
+                    select: {
+                        task: true,
+                        taskSlug: true,
+                    }
+                },
+                favorites: {
+                    select: {
+                        userId: true,
+                        active: true,
+                    },
+                },
+                linkDetail: {
+                    select: {
+                        content: true,
+                        updatedAt: true,
+                    },
+                },
+            },
+        });
+        return link;
+    } catch (error) {
+        throw new Error("Failed to fetch link detail");
+    }
+}
+
 
 // handle favorite
 export const handleFavorite = async (userId: string, favId: number, favStatus: boolean) => {

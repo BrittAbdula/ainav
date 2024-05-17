@@ -29,13 +29,13 @@ model Link {
   task        Task?    @relation(fields: [taskId], references: [id])
   createdAt   DateTime     @default(now())
   updatedAt   DateTime     @updatedAt
-  linkDetails LinkDetail[]
+  linkDetail  LinkDetail?
   favorites   UserFavorite[]
 }
 
 model LinkDetail {
   id        Int      @id @default(autoincrement())
-  linkId    Int
+  linkId    Int      @unique
   content   String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
