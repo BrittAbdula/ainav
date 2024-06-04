@@ -16,10 +16,10 @@ export default function TermsOfService() {
             <p>In these Terms of Service, the following definitions apply:</p>
             <ul className="list-disc space-y-2 pl-6 text-gray-500 dark:text-gray-400">
               <li>
-                <strong>EmojiTell</strong>: The website and platform operated by Emojitell Inc.
+                <strong>EmojiTell</strong>: The website and platform operated by aiWebsitesList Inc.
               </li>
               <li>
-                <strong>Service</strong>: The EmojiTell platform and all related services provided by Emojitell Inc.
+                <strong>Service</strong>: The EmojiTell platform and all related services provided by aiWebsitesList Inc.
               </li>
               <li>
                 <strong>User</strong>: Any individual or entity that accesses or uses the Service.
@@ -44,7 +44,7 @@ export default function TermsOfService() {
           <div className="space-y-4">
             <h2 className="text-2xl font-bold">3. Intellectual Property</h2>
             <p>
-              The Service, including its content, features, and functionality, is owned by Emojitell Inc. and is protected by
+              The Service, including its content, features, and functionality, is owned by aiWebsitesList Inc. and is protected by
               copyright, trademark, and other intellectual property laws.
             </p>
             <p>
@@ -86,27 +86,27 @@ export default function TermsOfService() {
             <h2 className="text-2xl font-bold">6. Disclaimers</h2>
             <p>
                 The Service is provided &quot;as is&quot; and &quot;as available&quot; without warranties of any kind, either express or
-                implied. Emojitell Inc. does not warrant that the Service will be uninterrupted or error-free, or that defects
+                implied. aiWebsitesList Inc. does not warrant that the Service will be uninterrupted or error-free, or that defects
                 will be corrected.
             </p>
             <p>
-                Emojitell Inc. disclaims all warranties, including but not limited to warranties of merchantability, fitness for
+                aiWebsitesList Inc. disclaims all warranties, including but not limited to warranties of merchantability, fitness for
                 a particular purpose, and non-infringement.
             </p>
         </div>
           <div className="space-y-4">
             <h2 className="text-2xl font-bold">7. Limitation of Liability</h2>
             <p>
-              In no event shall Emojitell Inc. be liable for any indirect, special, incidental, or consequential damages
+              In no event shall aiWebsitesList Inc. be liable for any indirect, special, incidental, or consequential damages
               arising out of or in connection with the Service, including but not limited to lost profits, business
               interruption, or loss of data.
             </p>
-            <p>Emojitell Inc.&apos;ss total liability to you for any and all claims shall not exceed $100.</p>
+            <p>aiWebsitesList Inc.&apos;ss total liability to you for any and all claims shall not exceed $100.</p>
           </div>
           <div className="space-y-4">
             <h2 className="text-2xl font-bold">8. Indemnification</h2>
             <p>
-              You agree to indemnify and hold Emojitell Inc., its affiliates, officers, agents, and employees harmless from any
+              You agree to indemnify and hold aiWebsitesList Inc., its affiliates, officers, agents, and employees harmless from any
               claim or demand, including reasonable attorneys&apos;s fees, made by any third party due to or arising out of your
               use of the Service, your violation of these Terms of Service, or your violation of any rights of another.
             </p>
@@ -124,7 +124,7 @@ export default function TermsOfService() {
               If you have any questions or concerns about these Terms of Service or the Service, please contact us at:
             </p>
             <p>
-              Email: support@emojitell.com
+              Email: support@aiwebsiteslist.com
             </p>
           </div>
         </div>

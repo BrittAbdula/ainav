@@ -43,7 +43,7 @@ export default function Links({ links, defaultTab }: { links: LinkCardProps[], d
                                 <SearchIcon className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
                                 <Input
                                     className="pl-8 sm:w-[300px] md:w-[200px] lg:w-[300px]"
-                                    placeholder="Search products..."
+                                    placeholder="Search AI websites..."
                                     type="search"
                                 />
                             </div>

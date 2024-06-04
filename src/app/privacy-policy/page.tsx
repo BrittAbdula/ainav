@@ -5,10 +5,10 @@ export default function PrivacyPolicy() {
             <section className="mb-8">
                 <h2 className="mb-4 text-2xl font-bold">Data Collection</h2>
                 <p className="text-gray-500 dark:text-gray-400">
-                    emojitell.com attaches great importance to user privacy, we put the user&apos;s feeling and experience in the first place.
+                    aiwebsiteslist.com attaches great importance to user privacy, we put the user&apos;s feeling and experience in the first place.
                 </p>
                 <p className="text-gray-500 dark:text-gray-400">
-                    At emojitell.com, we collect certain information from our users in order to provide and improve our services.
+                    At aiwebsiteslist.com, we collect certain information from our users in order to provide and improve our services.
                     This includes your email address, username, and any messages or content you choose to share with us.
                 </p>
                 <p className="text-gray-500 dark:text-gray-400">
@@ -42,13 +42,13 @@ export default function PrivacyPolicy() {
             <section className="mb-8">
                 <h2 className="mb-4 text-2xl font-bold">Children&apos;s Privacy Protection</h2>
                 <p className="text-gray-500 dark:text-gray-400">
-                    We are no services available to children under the age of 18(or the age of your country/region), and we do not knowingly collect these informations. Any person under 18 needs the consent of their parents or other guardian to use the products or services of emojitell.com.
+                    We are no services available to children under the age of 18(or the age of your country/region), and we do not knowingly collect these informations. Any person under 18 needs the consent of their parents or other guardian to use the products or services of aiwebsiteslist.com.
                 </p>
             </section>
             <section className="mb-8">
                 <h2 className="mb-4 text-2xl font-bold">Links to other websites</h2>
                 <p className="text-gray-500 dark:text-gray-400">
-                    emojitell.com contains links to other websites and ads. We accept no liability for the privacy policies, security, procedures, products, practices of these third-party websites.
+                    aiwebsiteslist.com contains links to other websites and ads. We accept no liability for the privacy policies, security, procedures, products, practices of these third-party websites.
                 </p>
                 <p className="text-gray-500 dark:text-gray-400">
                     These third-party websites have thier own contents and privacy policies, if you click on these links, you will point to a third-party website. We strongly recommended you to check the privacy policy of each website you visit.          </p>
@@ -61,7 +61,7 @@ export default function PrivacyPolicy() {
                 </p>
                 <p className="text-gray-500 dark:text-gray-400">
                     If you have any questions or concerns about our privacy practices, or would like to exercise your rights,
-                    please contact us at support@emojitell.com.
+                    please contact us at support@aiwebsiteslist.com.
                 </p>
 
             </section>

@@ -13,3 +13,4 @@ INSERT INTO "Link" ("title", "url", "imageUrl", "categoryId","updatedAt") VALUES
 
 --- 获取 icon
 https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://emojitell.com&size=128
+https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://chat.deepseek.com/&size=128
