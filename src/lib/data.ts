@@ -42,7 +42,7 @@ export const fetchLinks = async (userId?: string, filter?: boolean, offset?: num
                 }
             }),
             orderBy: { id: 'desc' },
-            take: limit || 10,
+            take: limit || 100,
         });
         return links;
     } catch (error) {
