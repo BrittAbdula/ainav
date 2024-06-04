@@ -65,6 +65,9 @@ async function insertData(tasks) {
             const checkRes = await client.query(checkTitleText, [item.task]);
 
             let taskId = null;
+            const innerUrl = strToURL(item.name);
+            const url = removeQueryParams(item.url);
+
             if (checkRes.rows.length === 0) {
                 // Insert into Task table
                 const insertTaskText = 'INSERT INTO "Task"("task", "taskSlug", "updatedAt") VALUES($1, $2, $3) RETURNING "id"';
@@ -75,27 +78,27 @@ async function insertData(tasks) {
                 taskId = checkRes.rows[0].id;
             }
 
-            // 检查 Link 中是否已存在相同的 title
-            const checkLinkText = 'SELECT * FROM "Link" WHERE "title" = $1';
-            const checkLinkRes = await client.query(checkLinkText, [item.name]);
+            // 检查 Link 中是否已存在相同的 url
+            const checkLinkText = 'SELECT * FROM "Link" WHERE "url" = $1 or "innerUrl" = $2';
+            const checkLinkRes = await client.query(checkLinkText, [url, innerUrl]);
 
             if (checkLinkRes.rows.length > 0) {
                 // 如果 title 已存在，跳过
-                // continue;
-                console.log('updating ---i,j, title:', i, j, item.name);
+                continue;
+                console.log('skipping ---i,j, title:', i, j, item.name);
+                //console.log('updating ---i,j, title:', i, j, item.name);
             }
-            const innerUrl = strToURL(item.name);
-            const url = removeQueryParams(item.url);
-            // Insert into Link table
-            const insertLinkText = `INSERT INTO "Link"("title", "innerUrl", "url", "taskId", "updatedAt")
-            VALUES($1, $2, $3, $4, $5)
-            ON CONFLICT ("url")
-            DO UPDATE SET
-                "innerUrl" = EXCLUDED."innerUrl",
-                "title" = EXCLUDED."title",
-                "taskId" = EXCLUDED."taskId",
-                "updatedAt" = EXCLUDED."updatedAt";
-            `;
+            // // Insert into Link table
+            // const insertLinkText = `INSERT INTO "Link"("title", "innerUrl", "url", "taskId", "updatedAt")
+            // VALUES($1, $2, $3, $4, $5)
+            // ON CONFLICT ("url")
+            // DO UPDATE SET
+            //     "innerUrl" = EXCLUDED."innerUrl",
+            //     "title" = EXCLUDED."title",
+            //     "taskId" = EXCLUDED."taskId",
+            //     "updatedAt" = EXCLUDED."updatedAt";
+            // `;
+            const insertLinkText = `INSERT INTO "Link"("title", "innerUrl", "url", "taskId", "updatedAt") VALUES($1, $2, $3, $4, $5)`;
             await client.query(insertLinkText, [item.name, innerUrl, url , taskId, new Date()]);
             console.log('processing ---i,j, title, innerUrl, url:', ++i, j, item.name, innerUrl, url);
             if (i >= 10) {

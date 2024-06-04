@@ -6,7 +6,7 @@ export default function Footer() {
             <div className="max-w-screen-xl mx-auto px-4 flex flex-col items-center gap-4">
                 <div>
                     <div className="select-none flex items-center">
-                        <div className="mr-2"><img alt="Tailsc Logo" loading="lazy" width="30" height="30" decoding="async" data-nimg="1" src="/logo.svg" /></div>
+                        <div className="mr-2"><img alt="Aiwebsiteslist Logo" loading="lazy" width="30" height="30" decoding="async" data-nimg="1" src="/logo.svg" /></div>
                         <div className="text-xl __className_3ac6c1"></div>
                     </div>
                 </div>
