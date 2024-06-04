@@ -1,7 +1,7 @@
 'use client'
 import React from 'react';
 import { useState } from 'react';
-import { CardTitle, CardHeader, CardContent, Card, CardDescription } from "@/components/ui/card";
+import { CardTitle, CardHeader, CardContent, Card, CardDescription, CardFooter } from "@/components/ui/card";
 import { LinkIcon, FavoriteIcon } from "@/components/ui/svg";
 
 export type LinkCardProps = {
@@ -49,17 +49,19 @@ export default function LinkCard({ link }: { link: LinkCardProps }) {
             </CardHeader>
             <CardContent>
                 <p className="  text-muted-foreground  line-clamp-2">{link.task?.task}</p>
+            </CardContent>
+            <CardFooter>
                 <div className="flex flex-row items-center justify-center gap-8 space-y-0 mt-2">
                     <a href={link.url} rel="nofollow">
                         <div className="p-2 border-2 border-transparent hover:border-gray-300 ">
                             <LinkIcon className="h-4 w-4 text-muted-foreground hover:text-blue-500" />
                         </div>
                     </a>
-                    <div className="p-2 border-2 border-transparent hover:border-gray-300" onClick={handleFav} >
+                    <div className="border-2 border-transparent hover:border-gray-300" onClick={handleFav} >
                         <FavoriteIcon className="h-4 w-4 text-muted-foreground hover:text-red-500" color={favStatus ? "red" : "none"} />
                     </div>
                 </div>
-            </CardContent>
+            </CardFooter>
         </Card>
     )
 }

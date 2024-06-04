@@ -4,6 +4,8 @@ import "./globals.css";
 import Header from "@/components/component/header";
 import Footer from "@/components/component/footer";
 import { SessionProvider } from "next-auth/react";
+import { GoogleAnalytics  } from '@next/third-parties/google';
+ 
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -28,6 +30,7 @@ export default function RootLayout({
           <Footer />
         </div>
       </body>
+      <GoogleAnalytics  gaId={process.env.NEXT_PUBLIC_GA_ID || ""} />
     </html>
   );
 }
