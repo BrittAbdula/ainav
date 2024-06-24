@@ -84,8 +84,8 @@ async function insertData(tasks) {
 
             if (checkLinkRes.rows.length > 0) {
                 // 如果 title 已存在，跳过
+                console.log('skipping ---i,j, title, innerUrl, url:', ++i, j, item.name, innerUrl, url);
                 continue;
-                console.log('skipping ---i,j, title:', i, j, item.name);
                 //console.log('updating ---i,j, title:', i, j, item.name);
             }
             // // Insert into Link table

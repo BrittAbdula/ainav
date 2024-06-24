@@ -10,7 +10,7 @@ import { GoogleAnalytics  } from '@next/third-parties/google';
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://aiwebsiteslist.com'),
+  metadataBase: new URL('https://aiwebsiteslist.com/'),
   title: "The world's best curated list of AI Websites",
   description: "Discover the best curated list of AI websites, featuring top resources, tools, and platforms for artificial intelligence enthusiasts and professionals",
   alternates: {
