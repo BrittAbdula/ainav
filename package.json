@@ -7,8 +7,8 @@
     "build": "pnpm run prisma:generate && next build",
     "start": "next start",
     "lint": "next lint",
-    "postinstall": "prisma generate",
-    "prisma:generate": "prisma generate"
+    "postinstall": "pnpx prisma generate",
+    "prisma:generate": "pnpx prisma generate"
   },
   "dependencies": {
     "@auth/prisma-adapter": "^2.1.0",

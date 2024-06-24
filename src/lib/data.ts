@@ -4,6 +4,7 @@ import { Prisma } from "@prisma/client";
 // fetch Links
 export const fetchLinks = async (userId?: string, filter?: boolean, offset?: number, limit?: number) => {
     try {
+        console.log("-----------fileter:", filter, "offset:", offset, "limit:", limit, "userId:", userId)
         const links = await prisma.link.findMany({
             select: {
                 id: true,
@@ -19,24 +20,20 @@ export const fetchLinks = async (userId?: string, filter?: boolean, offset?: num
                 },
                 ...(userId &&
                     {
-                        favorites: {
+                        userFavorite: {
                             select: {
                                 linkId: true,
                                 active: true,
-                            },
-                            where: {
-                                active: true,
-                            },
+                            }
                         },
                     }
                 ),
             },
             ...(filter && {
                 where: {
-                    favorites: {
+                    userFavorite: {
                         some: {
-                            userId,
-                            active: true,
+                            userId
                         }
                     }
                 }
@@ -46,6 +43,7 @@ export const fetchLinks = async (userId?: string, filter?: boolean, offset?: num
         });
         return links;
     } catch (error) {
+        console.log("-----Error fetching links:", error);
         throw new Error("Failed to fetch links");
     }
 }
@@ -68,7 +66,7 @@ export const fetchLinkDetail = async (linkId: number) => {
                         taskSlug: true,
                     }
                 },
-                favorites: {
+                userFavorite: {
                     select: {
                         userId: true,
                         active: true,
